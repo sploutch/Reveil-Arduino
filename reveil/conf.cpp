@@ -26,9 +26,10 @@ const int C_PIN_DISPLAY_DIO = 8;
 
 // BOUTTON
 const int C_PIN_BTN_ALARM_CONF  = 2;
-const int C_PIN_BTN_ADD_MM      = 3;
-const int C_PIN_BTN_ADD_HH      = 5;
-const int C_PIN_BTN_TIME_CONF   = 6;
+const int C_PIN_BTN_ADD_HH      = 3;
+const int C_PIN_BTN_ADD_MM      = 4;
+const int C_PIN_BTN_TIME_CONF   = 5;
+const int C_PIN_BTN_LIGHT       = 6;
 const int C_PIN_SWITCH_ALARM    = 7;
 
 // LED

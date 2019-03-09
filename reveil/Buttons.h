@@ -17,6 +17,7 @@
       Button btn_add_mm;
       Button btn_add_hh;
       Button btn_time_conf;
+      Button btn_light;
       Button btn_switch_alarm;
   
       // Init des bouttons

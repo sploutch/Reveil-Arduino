@@ -26,7 +26,15 @@ Buttons g_buttons(g_afficheur, g_alarm);
 /* ----------------------------------------------------------- */
 void setup() {
   Serial.begin(9600);
-  pinMode(C_PIN_LED_SUN, OUTPUT);
+  pinMode(C_PIN_BTN_ALARM_CONF, INPUT);
+  pinMode(C_PIN_BTN_ADD_HH,     INPUT);
+  pinMode(C_PIN_BTN_ADD_MM,     INPUT);
+  pinMode(C_PIN_BTN_TIME_CONF,  INPUT);
+  pinMode(C_PIN_BTN_LIGHT,      INPUT);
+  pinMode(C_PIN_SWITCH_ALARM,   INPUT);
+  
+  pinMode(C_PIN_LED_SUN,        OUTPUT);
+  
   g_afficheur.refreshDate();
   g_buttons.initSwitchAlarm();
   g_afficheur.displayCurrentTime();

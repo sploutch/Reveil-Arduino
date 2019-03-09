@@ -11,12 +11,14 @@ Buttons::Buttons(Afficheur& afficheur_ref, Alarm& alarm_ref) : g_afficheur(affic
   this->btn_add_mm.setPin(C_PIN_BTN_ADD_MM);
   this->btn_add_hh.setPin(C_PIN_BTN_ADD_HH);
   this->btn_time_conf.setPin(C_PIN_BTN_TIME_CONF);
+  this->btn_light.setPin(C_PIN_BTN_LIGHT);
   this->btn_switch_alarm.setPin(C_PIN_SWITCH_ALARM);
 
   this->btn_alarm_conf.setEtat();
   this->btn_add_mm.setEtat();
   this->btn_add_hh.setEtat();
   this->btn_time_conf.setEtat();
+  this->btn_light.setEtat();
   this->btn_switch_alarm.setEtat();
 }
 
@@ -26,6 +28,7 @@ void Buttons::checkAllButtonsAction() {
   this->checkButtonAction(this->btn_add_mm);
   this->checkButtonAction(this->btn_add_hh);
   this->checkButtonAction(this->btn_time_conf);
+  this->checkButtonAction(this->btn_light);
   this->checkButtonAction(this->btn_switch_alarm);
 }
 
@@ -102,10 +105,20 @@ void Buttons::checkButtonAction(Button& btn) {
       } else {
         this->g_afficheur.time_dot = true;
       }
-
-      // Rien
       break;
 
+    // Bouton pour la lumiére
+    case C_PIN_BTN_LIGHT : 
+      if (btn.isPressed() == true) {
+          // Si l'alare est en route, on la coupe
+          if(this->g_alarm.isRunning == true){
+            this->g_alarm.stopAlarm();
+            this->g_afficheur.displayAlameSTOP();              
+            delay(conf_delay_show_STOP);
+          }
+      }
+
+    break;
     // Switch de l'larme
     case C_PIN_SWITCH_ALARM :
       if (has_change == true) {
