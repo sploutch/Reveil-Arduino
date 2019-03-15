@@ -1,22 +1,30 @@
+/*!
+* -----------------------------------------------------------
+*                           TOOLS
+* -----------------------------------------------------------
+* @file Tools.cpp
+*
+* Written by Sploutch
+*
+* BSD license, all text here must be included in any redistribution.
+*
+*/
+
 #include "Tools.h"
-#include <EEPROM.h>      // Bibliothèque pour la mémoire interne de l'Arduino
 
-/* ----------------------------------------------------------- */
-/*                          EEPROM                             */
-/* ----------------------------------------------------------- */
-// Effacement de l'EEEPROM
-void eeprom_clear() {
-  for (int i = 0; i < 256; i++) {
-    EEPROM.write(i, 0);
-  }
+/** Effacement de l'EEEPROM **/
+void eepromClear() {
+	for (int i = 0; i < 256; i++) {
+		EEPROM.write(i, 0);
+	}
 }
 
-// Recupération d'une valeur stockée
-int eeprom_get(int add) {
-  return (int) EEPROM.read(add);
+/** Recupération d'une valeur stockée **/
+int eepromGet(int add) {
+	return (int) EEPROM.read(add);
 }
 
-// Stockage du valeur
-void eeprom_set(int add, int val) {
-  EEPROM.write(add, val);
+/** Stockage du valeur **/
+void eepromSet(int add, int val) {
+	EEPROM.write(add, val);
 }
